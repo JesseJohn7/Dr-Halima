@@ -20,11 +20,7 @@ const ministryRoles = [
   },
 ];
 
-const familyStats = [
-  { num: "5", label: "Children" },
-  { num: "2", label: "Grandchildren" },
-  { num: "1", label: "Devoted Husband" },
-];
+
 
 export default function AboutSection() {
   const [loaded, setLoaded] = useState(false);
@@ -141,26 +137,7 @@ export default function AboutSection() {
           background: linear-gradient(180deg, #A3762E 0%, #E8C97A 100%);
         }
 
-        /* Family block */
-        .family-block {
-          position: relative;
-          overflow: hidden;
-          background: linear-gradient(135deg, #1A1208 0%, #2a1e0a 100%);
-        }
-        .family-block::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 2px;
-          background: linear-gradient(90deg, #A3762E, #E8C97A, #A3762E);
-        }
-        .family-block .deco-cross {
-          position: absolute;
-          bottom: 1.5rem;
-          right: 2rem;
-          opacity: 0.06;
-          pointer-events: none;
-        }
+
       `}</style>
 
       <section
@@ -294,7 +271,7 @@ export default function AboutSection() {
                   {[
                     { num: "35+", label: "Years at FRCN" },
                     { num: "PhD", label: "in Theology" },
-                    { num: "3",   label: "Ministry Roles" },
+                    { num: "5",   label: "Children" },
                     { num: "∞",   label: "Jukun Sermons" },
                   ].map(({ num, label }) => (
                     <div key={label}>
@@ -325,26 +302,40 @@ export default function AboutSection() {
             <div style={fadeUp("0.4s")}>
 
               {/* Bio */}
-              <p
-                className="font-cormorant text-[#2C1E08] leading-[1.9] mb-10 pb-10"
-                style={{
-                  fontSize: "clamp(1.12rem, 1.5vw, 1.32rem)",
-                  borderBottom: "1px solid rgba(163,118,46,0.15)",
-                }}
+              <div
+                className="mb-10 pb-10"
+                style={{ borderBottom: "1px solid rgba(163,118,46,0.15)" }}
               >
-                <strong className="font-semibold text-[#1A1208]">
-                  Rev. Dr. Halima Ishaku Adamu
-                </strong>{" "}
-                is a seasoned communicator, dedicated scholar, and pioneer of modern ministry in Nigeria.
-                Over a distinguished 35-year career at the{" "}
-                <strong className="font-semibold text-[#1A1208]">
-                  Federal Radio Corporation of Nigeria (FRCN)
-                </strong>
-                , she became a trusted voice — bringing clarity, comfort, and conviction to countless
-                homes across the nation. Today, her mission continues through digital evangelism,
-                leading a daily Jukun-language sermon podcast that carries the living Word to hearts
-                in their mother tongue.
-              </p>
+                <p
+                  className="font-cormorant text-[#2C1E08] leading-[1.9] mb-5"
+                  style={{ fontSize: "clamp(1.12rem, 1.5vw, 1.32rem)" }}
+                >
+                  <strong className="font-semibold text-[#1A1208]">
+                    Rev. Dr. Halima Ishaku Adamu
+                  </strong>{" "}
+                  is a seasoned communicator, dedicated scholar, and pioneer of modern ministry in Nigeria.
+                  Over a distinguished 35-year career at the{" "}
+                  <strong className="font-semibold text-[#1A1208]">
+                    Federal Radio Corporation of Nigeria (FRCN)
+                  </strong>
+                  , she became a trusted voice — bringing clarity, comfort, and conviction to countless
+                  homes across the nation. Today, her mission continues through digital evangelism,
+                  leading a daily Jukun-language sermon podcast that carries the living Word to hearts
+                  in their mother tongue.
+                </p>
+                <p
+                  className="font-cormorant text-[#2C1E08] leading-[1.9]"
+                  style={{ fontSize: "clamp(1.12rem, 1.5vw, 1.32rem)" }}
+                >
+                  She is happily married to{" "}
+                  <strong className="font-semibold text-[#1A1208]">Ishaku Adamu</strong>,
+                  and together they are blessed with{" "}
+                  <strong className="font-semibold text-[#1A1208]">five children</strong>{" "}
+                  and{" "}
+                  <strong className="font-semibold text-[#1A1208]">two grandchildren</strong>{" "}
+                  — a family that reflects the grace and faithfulness of God at every turn.
+                </p>
+              </div>
 
               {/* ─── Academic Qualifications ─── */}
               <section className="mb-12">
@@ -446,89 +437,7 @@ export default function AboutSection() {
                 ))}
               </section>
 
-              {/* Ornament */}
-              <div className="flex items-center gap-4 my-10">
-                <div className="h-px flex-1" style={{ background: "linear-gradient(to right,rgba(163,118,46,0.22),transparent)" }} />
-                <div className="flex gap-1.5 items-center">
-                  <div className="w-[4px] h-[4px] bg-[#A3762E] rotate-45 opacity-40" />
-                  <div className="w-[5px] h-[5px] bg-[#A3762E] rotate-45" />
-                  <div className="w-[4px] h-[4px] bg-[#A3762E] rotate-45 opacity-40" />
-                </div>
-                <div className="h-px flex-1" style={{ background: "linear-gradient(to left,rgba(163,118,46,0.22),transparent)" }} />
-              </div>
 
-              {/* ─── Family ─── */}
-              <section>
-                <div className="sec-label">
-                  <span
-                    className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em]"
-                    style={{ fontSize: "0.54rem", fontWeight: 600, whiteSpace: "nowrap" }}
-                  >
-                    Family &amp; Personal Life
-                  </span>
-                </div>
-
-                <div className="family-block px-6 sm:px-10 py-8 sm:py-10">
-                  {/* Decorative cross */}
-                  <div className="deco-cross">
-                    <div className="relative w-16 h-16">
-                      <div className="absolute left-1/2 top-0 bottom-0 w-[1.5px] -translate-x-1/2 bg-[#E8C97A]" />
-                      <div className="absolute top-1/2 left-0 right-0 h-[1.5px] -translate-y-1/2 bg-[#E8C97A]" />
-                    </div>
-                  </div>
-
-                  {/* Opening quote */}
-                  <div
-                    className="font-cormorant text-[#A3762E] leading-none mb-1 select-none"
-                    style={{ fontSize: "3.5rem", lineHeight: 0.75, opacity: 0.35 }}
-                  >
-                    "
-                  </div>
-
-                  <p
-                    className="font-cormorant italic"
-                    style={{
-                      fontSize: "clamp(1.15rem, 1.8vw, 1.4rem)",
-                      lineHeight: 1.95,
-                      color: "rgba(249,245,238,0.86)",
-                      marginBottom: "1.75rem",
-                    }}
-                  >
-                    Behind every great work of faith is a home that holds it together. She is
-                    happily married to{" "}
-                    <strong
-                      style={{ color: "#E8C97A", fontWeight: 600, fontStyle: "normal" }}
-                    >
-                      Ishaku Adamu
-                    </strong>
-                    , and together they have built a home filled with love, laughter, and the
-                    unwavering presence of God.
-                  </p>
-
-                  {/* Stats — inline, no boxes */}
-                  <div
-                    className="flex flex-wrap gap-6 sm:gap-10 pt-6"
-                    style={{ borderTop: "1px solid rgba(163,118,46,0.18)" }}
-                  >
-                    {familyStats.map(({ num, label }) => (
-                      <div key={label} className="flex items-baseline gap-2">
-                        <span
-                          className="font-cormorant font-bold text-[#A3762E]"
-                          style={{ fontSize: "2.1rem", lineHeight: 1 }}
-                        >
-                          {num}
-                        </span>
-                        <span
-                          className="font-lato uppercase tracking-widest"
-                          style={{ fontSize: "0.57rem", color: "rgba(249,245,238,0.38)" }}
-                        >
-                          {label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
 
             </div>{/* end right col */}
           </div>
