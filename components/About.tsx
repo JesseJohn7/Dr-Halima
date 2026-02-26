@@ -128,7 +128,7 @@ export default function AboutSection() {
       <section
         className="relative bg-white overflow-hidden"
         style={{ fontFamily: "'Cormorant Garamond', serif" }}
-      >
+       id="about">
         {/* Top shimmer bar */}
         <div className="w-full h-[3px] gold-rule" />
 
