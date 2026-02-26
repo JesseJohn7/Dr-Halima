@@ -269,7 +269,7 @@ export default function AboutSection() {
                 <div className="sec-label">
                   <span
                     className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em]"
-                    style={{ fontSize: "0.54rem", fontWeight: 600, whiteSpace: "nowrap" }}
+                    style={{ fontSize: "1rem", fontWeight: 600, whiteSpace: "nowrap" }}
                   >
                     Academic Qualifications
                   </span>
@@ -323,7 +323,7 @@ export default function AboutSection() {
                 <div className="sec-label">
                   <span
                     className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em]"
-                    style={{ fontSize: "0.54rem", fontWeight: 600, whiteSpace: "nowrap" }}
+                    style={{ fontSize: "1rem", fontWeight: 600, whiteSpace: "nowrap" }}
                   >
                     Ministry Leadership
                   </span>
