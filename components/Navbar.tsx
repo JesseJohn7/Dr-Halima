@@ -29,19 +29,20 @@ const Navbar: React.FC = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@300;400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
         .font-cinzel    { font-family: 'Cinzel', serif; }
         .font-cormorant { font-family: 'Cormorant Garamond', serif; }
 
         .nav-link {
           position: relative;
           font-family: 'Cinzel', serif;
-          font-size: 0.6rem;
-          letter-spacing: 0.22em;
+          font-size: 0.72rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #4A3520;
+          color: #2D1F0E;
           text-decoration: none;
-          padding-bottom: 4px;
+          padding-bottom: 5px;
           transition: color 0.25s ease;
         }
         .nav-link::after {
@@ -50,9 +51,9 @@ const Navbar: React.FC = () => {
           bottom: 0;
           left: 0;
           width: 0;
-          height: 1.5px;
-          background: #A3762E;
-          transition: width 0.3s ease;
+          height: 2px;
+          background: linear-gradient(to right, #A3762E, #E8C97A);
+          transition: width 0.32s ease;
         }
         .nav-link:hover        { color: #A3762E; }
         .nav-link:hover::after { width: 100%; }
@@ -71,26 +72,26 @@ const Navbar: React.FC = () => {
         {/* Gold top accent line */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#A3762E]" />
 
-        <div className="relative flex items-center justify-between h-[72px] px-6 md:px-14 lg:px-20 xl:px-28 max-w-7xl mx-auto">
+        <div className="relative flex items-center justify-between h-[80px] px-6 md:px-14 lg:px-20 xl:px-28 max-w-7xl mx-auto">
 
           {/* Logo / Brand */}
           <Link href="#home" className="flex flex-col leading-none no-underline group" onClick={() => setActiveLink("home")}>
             <span
-              className="font-cormorant text-[#1A1208] font-light"
-              style={{ fontSize: "1.15rem", letterSpacing: "0.04em" }}
+              className="font-cormorant text-[#1A1208]"
+              style={{ fontSize: "1.35rem", fontWeight: 600, letterSpacing: "0.04em" }}
             >
               Rev. Dr. <span className="italic text-[#A3762E]">Halima</span>
             </span>
             <span
               className="font-cinzel text-[#A3762E] uppercase"
-              style={{ fontSize: "0.48rem", letterSpacing: "0.35em" }}
+              style={{ fontSize: "0.5rem", fontWeight: 600, letterSpacing: "0.32em" }}
             >
               Ishaku Adamu · Ministry
             </span>
           </Link>
 
           {/* Desktop links */}
-          <ul className="hidden md:flex items-center gap-8 list-none m-0 p-0">
+          <ul className="hidden md:flex items-center gap-9 list-none m-0 p-0">
             {navLinks.map((link) => (
               <li key={link.id}>
                 <Link
@@ -107,10 +108,10 @@ const Navbar: React.FC = () => {
           {/* Desktop CTA */}
           <a
             href="#book"
-            className="hidden md:inline-flex items-center gap-2 font-cinzel text-[0.55rem] tracking-[0.2em] uppercase px-5 py-[0.6rem] bg-[#A3762E] text-white transition-all duration-300 hover:bg-[#8B6025] hover:shadow-[0_4px_20px_rgba(163,118,46,0.35)] hover:-translate-y-[1px] no-underline"
-            style={{ fontFamily: "'Cinzel', serif" }}
+            className="hidden md:inline-flex items-center gap-2 uppercase no-underline transition-all duration-300 hover:bg-[#8B6025] hover:shadow-[0_4px_20px_rgba(163,118,46,0.35)] hover:-translate-y-[1px]"
+            style={{ fontFamily: "'Cinzel',serif", fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.18em", background: "#A3762E", color: "#fff", padding: "0.7rem 1.4rem" }}
           >
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
               <path d="M6 2h12a2 2 0 012 2v18l-8-3-8 3V4a2 2 0 012-2z"/>
             </svg>
             Pre-Order Book
@@ -175,10 +176,10 @@ const Navbar: React.FC = () => {
                   ${activeLink === link.id ? "text-[#A3762E]" : "text-[#4A3520] hover:text-[#A3762E] hover:pl-2"}
                   ${menuOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}`}
               >
-                <span className="font-cinzel text-[0.45rem] tracking-[0.3em] text-[#A3762E] opacity-50 min-w-[22px]">
+                <span className="font-cinzel text-[0.5rem] tracking-[0.3em] text-[#A3762E] opacity-50 min-w-[22px]">
                   0{i + 1}
                 </span>
-                <span className="font-cinzel text-[0.7rem] tracking-[0.25em] uppercase">{link.label}</span>
+                <span style={{ fontFamily:"'Cinzel',serif", fontSize:"0.82rem", fontWeight:600, letterSpacing:"0.22em", textTransform:"uppercase" }}>{link.label}</span>
                 {activeLink === link.id && (
                   <span className="ml-auto w-[5px] h-[5px] bg-[#A3762E] rotate-45" />
                 )}
