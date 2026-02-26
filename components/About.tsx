@@ -179,8 +179,8 @@ export default function AboutSection() {
           {/* ── Two-col Grid ── */}
           <div className="grid grid-cols-1 lg:grid-cols-[310px_1fr] gap-12 lg:gap-20 xl:gap-28 items-start">
 
-            {/* ═══════════ LEFT ═══════════ */}
-            <aside className="lg:sticky lg:top-12" style={fadeIn("0.3s")}>
+            {/* ═══════════ LEFT (image) — order-2 on mobile, order-1 on desktop ═══════════ */}
+            <aside className="lg:sticky lg:top-12 order-2 lg:order-1" style={fadeIn("0.3s")}>
 
               {/* Photo */}
               <div className="photo-wrap-about animate-float mb-6">
@@ -225,8 +225,8 @@ export default function AboutSection() {
 
             </aside>
 
-            {/* ═══════════ RIGHT ═══════════ */}
-            <div style={fadeUp("0.4s")}>
+            {/* ═══════════ RIGHT (text) — order-1 on mobile, order-2 on desktop ═══════════ */}
+            <div className="order-1 lg:order-2" style={fadeUp("0.4s")}>
 
               {/* Bio */}
               <div
