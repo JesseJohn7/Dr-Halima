@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function HeroSection() {
   const [loaded, setLoaded] = useState(false);
@@ -290,28 +291,13 @@ export default function HeroSection() {
                 {/* Image area */}
                 <div className="relative overflow-hidden bg-[#F5EFE0]" style={{ aspectRatio: "3/4" }}>
 
-                  {/*
-                    ── SWAP THIS BLOCK with your real image: ──
-                    <Image
-                      src="/images/halima.jpg"
-                      alt="Rev. Dr. Halima Ishaku Adamu"
-                      fill
-                      className="object-cover object-top"
-                      priority
-                    />
-                  */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#F8F2E6] via-[#EDE0C4] to-[#CBAA80] flex items-end justify-center pb-8">
-                    <svg viewBox="0 0 200 300" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 opacity-[.14]" fill="#A3762E">
-                      <ellipse cx="100" cy="72" rx="46" ry="52" />
-                      <path d="M28 300 Q28 165 100 152 Q172 165 172 300Z" />
-                    </svg>
-                    <p
-                      className="font-cinzel text-[#A3762E] uppercase opacity-40 tracking-[0.3em] relative z-10"
-                      style={{ fontSize: "0.52rem" }}
-                    >
-                      Your Photo Here
-                    </p>
-                  </div>
+                  <Image
+                    src="/halima.png"
+                    alt="Rev. Dr. Halima Ishaku Adamu"
+                    fill
+                    className="object-cover object-top"
+                    priority
+                  />
 
                   {/* Bottom fade */}
                   <div
