@@ -178,8 +178,8 @@ export default function HeroSection() {
               <div className="flex items-center gap-3 mb-8" style={fadeUp("0.1s")}>
                 <div className="w-8 h-[2px] bg-[#A3762E] shrink-0" />
                 <span
-                  className="font-cinzel text-[#A3762E] uppercase tracking-[0.32em]"
-                  style={{ fontSize: "0.56rem" }}
+                  className="font-cinzel text-[#A3762E] uppercase tracking-[1rem]"
+                  style={{ fontSize: "1rem" }}
                 >
                   Scholar · Teacher · Communicator · Voice of Hope
                 </span>
