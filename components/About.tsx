@@ -123,21 +123,6 @@ export default function AboutSection() {
           background: linear-gradient(to right, rgba(163,118,46,0.28), transparent);
         }
 
-        /* Snap card */
-        .snap-card {
-          background: #1A1208;
-          position: relative;
-          overflow: hidden;
-        }
-        .snap-card::before {
-          content: '';
-          position: absolute;
-          left: 0; top: 0; bottom: 0;
-          width: 3px;
-          background: linear-gradient(180deg, #A3762E 0%, #E8C97A 100%);
-        }
-
-
       `}</style>
 
       <section
@@ -204,32 +189,11 @@ export default function AboutSection() {
                 <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-[#A3762E] z-10 hidden sm:block" />
 
                 <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                  {/*
-                    ── Replace this placeholder with your real image ──
-                    <Image
-                      src="/images/halima.jpg"
-                      alt="Rev. Dr. Halima Ishaku Adamu"
-                      fill
-                      className="object-cover object-top"
-                      priority
-                    />
-                  */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#F8F2E6] via-[#EDE0C4] to-[#CBAA80] flex items-end justify-center pb-8">
-                    <svg
-                      viewBox="0 0 200 300"
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 opacity-[.13]"
-                      fill="#A3762E"
-                    >
-                      <ellipse cx="100" cy="72" rx="46" ry="52" />
-                      <path d="M28 300 Q28 165 100 152 Q172 165 172 300Z" />
-                    </svg>
-                    <p
-                      className="font-cinzel text-[#A3762E] uppercase opacity-40 tracking-[0.3em] relative z-10"
-                      style={{ fontSize: "0.5rem" }}
-                    >
-                      Your Photo Here
-                    </p>
-                  </div>
+                  <img
+                    src="/halima.png"
+                    alt="Rev. Dr. Halima Ishaku Adamu"
+                    className="absolute inset-0 w-full h-full object-cover object-top"
+                  />
                   <div
                     className="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none"
                     style={{ background: "linear-gradient(to top,rgba(245,239,224,0.55),transparent)" }}
@@ -259,43 +223,6 @@ export default function AboutSection() {
                 </div>
               </div>
 
-              {/* Snapshot stats */}
-              <div className="snap-card px-6 py-5">
-                <p
-                  className="font-cinzel text-[#A3762E] uppercase tracking-[0.3em] mb-5"
-                  style={{ fontSize: "0.5rem" }}
-                >
-                  At a Glance
-                </p>
-                <div className="grid grid-cols-2 gap-x-4 gap-y-5">
-                  {[
-                    { num: "35+", label: "Years at FRCN" },
-                    { num: "PhD", label: "in Theology" },
-                    { num: "5",   label: "Children" },
-                    { num: "∞",   label: "Jukun Sermons" },
-                  ].map(({ num, label }) => (
-                    <div key={label}>
-                      <span
-                        className="font-cormorant font-bold text-[#E8C97A] block leading-none"
-                        style={{ fontSize: "1.9rem" }}
-                      >
-                        {num}
-                      </span>
-                      <span
-                        className="font-lato block mt-[5px]"
-                        style={{
-                          fontSize: "0.6rem",
-                          color: "rgba(249,245,238,0.42)",
-                          letterSpacing: "0.07em",
-                          lineHeight: 1.5,
-                        }}
-                      >
-                        {label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </aside>
 
             {/* ═══════════ RIGHT ═══════════ */}
@@ -436,8 +363,6 @@ export default function AboutSection() {
                   </div>
                 ))}
               </section>
-
-
 
             </div>{/* end right col */}
           </div>
