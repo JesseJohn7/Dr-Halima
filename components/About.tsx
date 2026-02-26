@@ -13,14 +13,11 @@ const qualifications = [
 const ministryRoles = [
   { role: "Associate Pastor", church: "Dew of Grace Assembly", location: "Lagos" },
   { role: "Associate Pastor", church: "Arise International Church", location: "Kaduna" },
-  { role: "Teacher", church: "Christian Reformed Church of Nigeria (CRCN), LCC", location: "Kaduna" },
-];
-
-const snapshots = [
-  { num: "35+", label: "Years at FRCN" },
-  { num: "3",   label: "Academic Degrees" },
-  { num: "3",   label: "Ministry Roles" },
-  { num: "∞",   label: "Jukun Sermons" },
+  {
+    role: "Teacher",
+    church: "Christian Reformed Church of Nigeria (CRCN), LCC",
+    location: "Kaduna",
+  },
 ];
 
 const familyStats = [
@@ -29,60 +26,6 @@ const familyStats = [
   { num: "1", label: "Devoted Husband" },
 ];
 
-// ─── Icons ────────────────────────────────────────────────────────────────────
-const GradIcon = () => (
-  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#A3762E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z" />
-    <path d="M6 12v5c3 3 9 3 12 0v-5" />
-  </svg>
-);
-const MinIcon = () => (
-  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#A3762E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 2L2 7l10 5 10-5-10-5z" />
-    <path d="M2 17l10 5 10-5" />
-    <path d="M2 12l10 5 10-5" />
-  </svg>
-);
-const FamIcon = () => (
-  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#A3762E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-    <circle cx="9" cy="7" r="4" />
-    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-  </svg>
-);
-
-// ─── Shared heading ───────────────────────────────────────────────────────────
-function SectionHeading({ icon, title }: { icon: React.ReactNode; title: string }) {
-  return (
-    <div className="flex items-center gap-3 mb-6">
-      <div className="w-8 h-8 bg-[#1A1208] flex items-center justify-center shrink-0">
-        {icon}
-      </div>
-      <span
-        className="font-cinzel uppercase text-[#4A3520] tracking-[0.28em]"
-        style={{ fontSize: "0.58rem", fontWeight: 600 }}
-      >
-        {title}
-      </span>
-    </div>
-  );
-}
-
-// ─── Ornament divider ─────────────────────────────────────────────────────────
-function Ornament() {
-  return (
-    <div className="flex items-center gap-3 my-10 opacity-30">
-      <div className="flex-1 h-px bg-[#A3762E]" />
-      <div className="w-[5px] h-[5px] bg-[#A3762E] rotate-45 shrink-0" />
-      <div className="w-[5px] h-[5px] bg-[#A3762E] rotate-45 shrink-0 opacity-40" />
-      <div className="w-[5px] h-[5px] bg-[#A3762E] rotate-45 shrink-0" />
-      <div className="flex-1 h-px bg-[#A3762E]" />
-    </div>
-  );
-}
-
-// ─── Page ─────────────────────────────────────────────────────────────────────
 export default function AboutSection() {
   const [loaded, setLoaded] = useState(false);
 
@@ -126,133 +69,166 @@ export default function AboutSection() {
           animation: shimmer 3s linear infinite;
         }
 
-        .watermark {
+        .watermark-about {
           position: absolute;
           font-family: 'Cinzel', serif;
           font-weight: 900;
           color: transparent;
-          -webkit-text-stroke: 1px rgba(163,118,46,0.055);
+          -webkit-text-stroke: 1px rgba(163,118,46,0.05);
           user-select: none;
           pointer-events: none;
           white-space: nowrap;
           letter-spacing: 0.08em;
-          top: 50%;
-          left: -1%;
+          top: 46%;
+          right: -1%;
           transform: translateY(-50%);
-          font-size: clamp(5rem, 12vw, 9rem);
+          font-size: clamp(5rem, 11vw, 8.5rem);
         }
 
-        .tag-pill {
-          font-family: 'Cinzel', serif;
-          font-size: 0.52rem;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          padding: 0.38rem 0.85rem;
-          border: 1px solid rgba(163,118,46,0.28);
-          color: #A3762E;
-          background: rgba(163,118,46,0.04);
-          transition: background 0.25s, color 0.25s;
-        }
-        .tag-pill:hover { background: rgba(163,118,46,0.1); }
-
-        .qual-card {
-          background: #fff;
-          border-bottom: 2px solid transparent;
-          box-shadow: 0 2px 14px rgba(26,18,8,0.06);
-          transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .qual-card:hover {
-          border-bottom-color: #A3762E;
-          box-shadow: 0 4px 22px rgba(26,18,8,0.1);
-        }
-
-        .ministry-card {
-          background: #fff;
-          box-shadow: 0 2px 14px rgba(26,18,8,0.06);
-          transition: box-shadow 0.2s;
-          overflow: hidden;
-        }
-        .ministry-card:hover { box-shadow: 0 4px 22px rgba(26,18,8,0.12); }
-
-        .animate-float { animation: float 6s ease-in-out infinite; }
-
-        /* image corner brackets */
-        .photo-wrap { position: relative; }
-        .photo-wrap::before {
+        .photo-wrap-about { position: relative; }
+        .photo-wrap-about::before {
           content: '';
           position: absolute;
           inset: -14px -14px 14px 14px;
-          border: 1.5px solid rgba(163,118,46,0.2);
+          border: 1.5px solid rgba(163,118,46,0.18);
           pointer-events: none;
           z-index: 0;
         }
+        @media (max-width: 640px) {
+          .photo-wrap-about::before { display: none; }
+        }
+
+        .animate-float { animation: float 6s ease-in-out infinite; }
+
+        /* Row items — elegant, no box shadow cards */
+        .data-row {
+          display: flex;
+          align-items: flex-start;
+          gap: 1.1rem;
+          padding: 1rem 0;
+          border-bottom: 1px solid rgba(163,118,46,0.1);
+          transition: padding-left 0.25s ease;
+          cursor: default;
+        }
+        .data-row:last-child { border-bottom: none; }
+        .data-row:hover { padding-left: 8px; }
+
+        /* Section label with extending line */
+        .sec-label {
+          display: flex;
+          align-items: center;
+          gap: 0.85rem;
+          margin-bottom: 1.2rem;
+        }
+        .sec-label::after {
+          content: '';
+          flex: 1;
+          height: 1px;
+          background: linear-gradient(to right, rgba(163,118,46,0.28), transparent);
+        }
+
+        /* Snap card */
+        .snap-card {
+          background: #1A1208;
+          position: relative;
+          overflow: hidden;
+        }
+        .snap-card::before {
+          content: '';
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 3px;
+          background: linear-gradient(180deg, #A3762E 0%, #E8C97A 100%);
+        }
+
+        /* Family block */
+        .family-block {
+          position: relative;
+          overflow: hidden;
+          background: linear-gradient(135deg, #1A1208 0%, #2a1e0a 100%);
+        }
+        .family-block::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #A3762E, #E8C97A, #A3762E);
+        }
+        .family-block .deco-cross {
+          position: absolute;
+          bottom: 1.5rem;
+          right: 2rem;
+          opacity: 0.06;
+          pointer-events: none;
+        }
       `}</style>
 
-      <section className="relative bg-white overflow-hidden" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-
-        {/* Top gold shimmer bar */}
+      <section
+        className="relative bg-white overflow-hidden"
+        style={{ fontFamily: "'Cormorant Garamond', serif" }}
+      >
+        {/* Top shimmer bar */}
         <div className="w-full h-[3px] gold-rule" />
 
-        {/* Left accent bar */}
+        {/* Left accent bar — desktop only */}
         <div
           className="absolute left-0 top-0 bottom-0 w-[5px] bg-[#A3762E] hidden lg:block"
-          style={fadeIn("0.15s")}
+          style={fadeIn("0.1s")}
         />
 
         {/* Watermark */}
-        <span className="watermark hidden lg:block" aria-hidden>ABOUT</span>
+        <span className="watermark-about hidden xl:block" aria-hidden>ABOUT</span>
 
-        {/* Dot-grid bg — left half */}
+        {/* Dot grid background */}
         <div
-          className="absolute left-0 top-0 bottom-0 w-1/2 pointer-events-none"
+          className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(circle, rgba(163,118,46,0.1) 1px, transparent 1px)",
+            backgroundImage:
+              "radial-gradient(circle, rgba(163,118,46,0.08) 1px, transparent 1px)",
             backgroundSize: "28px 28px",
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 py-20 lg:py-28">
+        {/* ── Content wrapper ── */}
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-10 lg:px-16 xl:px-24 py-20 lg:py-28">
 
-          {/* ── Page header ── */}
-          <div className="mb-16" style={fadeUp("0.05s")}>
-            <div className="flex items-center gap-3 mb-5">
+          {/* ── Page Header ── */}
+          <header className="mb-14 lg:mb-20" style={fadeUp("0.05s")}>
+            <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-[2px] bg-[#A3762E] shrink-0" />
               <span
-                className="font-cinzel text-[#A3762E] uppercase tracking-[0.32em]"
-                style={{ fontSize: "0.56rem" }}
+                className="font-cinzel text-[#A3762E] uppercase tracking-[0.34em]"
+                style={{ fontSize: "0.54rem" }}
               >
                 Her Story
               </span>
             </div>
             <h2
               className="font-cormorant text-[#1A1208] leading-[1.05]"
-              style={{ fontSize: "clamp(2.8rem, 5vw, 4.8rem)", fontWeight: 700 }}
+              style={{ fontSize: "clamp(2.5rem, 5vw, 4.6rem)", fontWeight: 700 }}
             >
-              A Life of{" "}
+              A Life Rooted in{" "}
               <em className="italic text-[#A3762E]">Faith,</em>
-              <br />
-              Service &amp; Purpose
+              <br className="hidden sm:block" />{" "}
+              Shaped by Purpose
             </h2>
-          </div>
+          </header>
 
-          {/* ── Main grid ── */}
-          <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-16 lg:gap-20 items-start">
+          {/* ── Two-col Grid ── */}
+          <div className="grid grid-cols-1 lg:grid-cols-[310px_1fr] gap-12 lg:gap-20 xl:gap-28 items-start">
 
-            {/* ═══ LEFT: Photo + Snapshot ═══ */}
-            <aside className="lg:sticky lg:top-10" style={fadeIn("0.3s")}>
+            {/* ═══════════ LEFT ═══════════ */}
+            <aside className="lg:sticky lg:top-12" style={fadeIn("0.3s")}>
 
-              {/* Photo frame */}
-              <div className="photo-wrap animate-float">
-                {/* Corner brackets */}
-                <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-[#A3762E] z-10" />
-                <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-[#A3762E] z-10" />
+              {/* Photo */}
+              <div className="photo-wrap-about animate-float mb-6">
+                {/* Corner brackets — hidden on small screens */}
+                <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-[#A3762E] z-10 hidden sm:block" />
+                <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-[#A3762E] z-10 hidden sm:block" />
 
-                <div
-                  className="relative overflow-hidden"
-                  style={{ aspectRatio: "3/4", background: "#F5EFE0" }}
-                >
+                <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
                   {/*
-                    ── Replace with real image: ──
+                    ── Replace this placeholder with your real image ──
                     <Image
                       src="/images/halima.jpg"
                       alt="Rev. Dr. Halima Ishaku Adamu"
@@ -262,13 +238,17 @@ export default function AboutSection() {
                     />
                   */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#F8F2E6] via-[#EDE0C4] to-[#CBAA80] flex items-end justify-center pb-8">
-                    <svg viewBox="0 0 200 300" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 opacity-[.13]" fill="#A3762E">
+                    <svg
+                      viewBox="0 0 200 300"
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 opacity-[.13]"
+                      fill="#A3762E"
+                    >
                       <ellipse cx="100" cy="72" rx="46" ry="52" />
                       <path d="M28 300 Q28 165 100 152 Q172 165 172 300Z" />
                     </svg>
                     <p
                       className="font-cinzel text-[#A3762E] uppercase opacity-40 tracking-[0.3em] relative z-10"
-                      style={{ fontSize: "0.52rem" }}
+                      style={{ fontSize: "0.5rem" }}
                     >
                       Your Photo Here
                     </p>
@@ -280,22 +260,21 @@ export default function AboutSection() {
                 </div>
 
                 {/* Name badge */}
-                <div className="bg-white border-t-2 border-[#A3762E] px-5 py-4 flex items-center justify-between shadow-sm">
+                <div className="bg-white border-t-2 border-[#A3762E] px-5 py-4 flex items-center justify-between">
                   <div>
                     <p
                       className="font-cinzel text-[#A3762E] uppercase mb-1 tracking-[0.28em]"
-                      style={{ fontSize: "0.55rem", fontWeight: 600 }}
+                      style={{ fontSize: "0.52rem", fontWeight: 600 }}
                     >
                       Rev. Dr.
                     </p>
                     <p
                       className="font-cormorant text-[#1A1208]"
-                      style={{ fontSize: "1.15rem", fontWeight: 600, letterSpacing: "0.02em" }}
+                      style={{ fontSize: "1.1rem", fontWeight: 600, letterSpacing: "0.02em" }}
                     >
                       Halima Ishaku Adamu
                     </p>
                   </div>
-                  {/* Cross mark */}
                   <div className="relative w-5 h-5 opacity-25 shrink-0 ml-3">
                     <div className="absolute left-1/2 top-0 bottom-0 w-[1.5px] -translate-x-1/2 bg-[#A3762E]" />
                     <div className="absolute top-1/2 left-0 right-0 h-[1.5px] -translate-y-1/2 bg-[#A3762E]" />
@@ -304,170 +283,244 @@ export default function AboutSection() {
               </div>
 
               {/* Snapshot stats */}
-              <div className="relative mt-6 p-5 overflow-hidden bg-[#1A1208]">
-                <div
-                  className="absolute left-0 top-0 bottom-0 w-[3px]"
-                  style={{ background: "linear-gradient(180deg,#A3762E 0%,#E8C97A 100%)" }}
-                />
+              <div className="snap-card px-6 py-5">
                 <p
-                  className="font-cinzel text-[#A3762E] uppercase tracking-[0.3em] mb-4"
-                  style={{ fontSize: "0.52rem" }}
+                  className="font-cinzel text-[#A3762E] uppercase tracking-[0.3em] mb-5"
+                  style={{ fontSize: "0.5rem" }}
                 >
                   At a Glance
                 </p>
-                {snapshots.map(({ num, label }) => (
-                  <div key={label} className="flex items-baseline gap-3 mb-3 last:mb-0">
-                    <span
-                      className="font-cormorant font-bold text-[#E8C97A] leading-none min-w-[44px]"
-                      style={{ fontSize: "1.7rem" }}
-                    >
-                      {num}
-                    </span>
-                    <span
-                      className="font-lato"
-                      style={{ fontSize: "0.7rem", color: "rgba(249,245,238,0.5)", letterSpacing: "0.04em" }}
-                    >
-                      {label}
-                    </span>
-                  </div>
-                ))}
+                <div className="grid grid-cols-2 gap-x-4 gap-y-5">
+                  {[
+                    { num: "35+", label: "Years at FRCN" },
+                    { num: "PhD", label: "in Theology" },
+                    { num: "3",   label: "Ministry Roles" },
+                    { num: "∞",   label: "Jukun Sermons" },
+                  ].map(({ num, label }) => (
+                    <div key={label}>
+                      <span
+                        className="font-cormorant font-bold text-[#E8C97A] block leading-none"
+                        style={{ fontSize: "1.9rem" }}
+                      >
+                        {num}
+                      </span>
+                      <span
+                        className="font-lato block mt-[5px]"
+                        style={{
+                          fontSize: "0.6rem",
+                          color: "rgba(249,245,238,0.42)",
+                          letterSpacing: "0.07em",
+                          lineHeight: 1.5,
+                        }}
+                      >
+                        {label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </aside>
 
-            {/* ═══ RIGHT: Content ═══ */}
-            <div style={fadeUp("0.45s")}>
+            {/* ═══════════ RIGHT ═══════════ */}
+            <div style={fadeUp("0.4s")}>
 
-              {/* Bio intro */}
+              {/* Bio */}
               <p
-                className="font-cormorant text-[#2C1E08] leading-[1.85] mb-12 pb-12"
+                className="font-cormorant text-[#2C1E08] leading-[1.9] mb-10 pb-10"
                 style={{
-                  fontSize: "clamp(1.15rem, 1.6vw, 1.3rem)",
-                  borderBottom: "1px solid rgba(163,118,46,0.22)",
-                  letterSpacing: "0.01em",
+                  fontSize: "clamp(1.12rem, 1.5vw, 1.32rem)",
+                  borderBottom: "1px solid rgba(163,118,46,0.15)",
                 }}
               >
-                <strong className="font-semibold text-[#1A1208]">Rev. Dr. Halima Ishaku Adamu</strong>{" "}
-                is a seasoned communicator, dedicated scholar, and pioneer in modern ministry.
-                Following a distinguished 35-year career with the{" "}
+                <strong className="font-semibold text-[#1A1208]">
+                  Rev. Dr. Halima Ishaku Adamu
+                </strong>{" "}
+                is a seasoned communicator, dedicated scholar, and pioneer of modern ministry in Nigeria.
+                Over a distinguished 35-year career at the{" "}
                 <strong className="font-semibold text-[#1A1208]">
                   Federal Radio Corporation of Nigeria (FRCN)
                 </strong>
-                , she transitioned into digital evangelism — leading a daily Jukun sermon podcast
-                that carries the Gospel to hearts in their native tongue.
+                , she became a trusted voice — bringing clarity, comfort, and conviction to countless
+                homes across the nation. Today, her mission continues through digital evangelism,
+                leading a daily Jukun-language sermon podcast that carries the living Word to hearts
+                in their mother tongue.
               </p>
 
-              {/* Tag pills */}
-              <div className="flex flex-wrap gap-2 mb-12">
-                {["Biblical Scholar", "Theologian", "Author", "Daily Jukun Sermons"].map((t) => (
-                  <span key={t} className="tag-pill">{t}</span>
+              {/* ─── Academic Qualifications ─── */}
+              <section className="mb-12">
+                <div className="sec-label">
+                  <span
+                    className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em]"
+                    style={{ fontSize: "0.54rem", fontWeight: 600, whiteSpace: "nowrap" }}
+                  >
+                    Academic Qualifications
+                  </span>
+                </div>
+
+                {qualifications.map(({ degree, note }, i) => (
+                  <div key={i} className="data-row">
+                    {/* Bullet + connector */}
+                    <div className="shrink-0 flex flex-col items-center" style={{ paddingTop: "6px" }}>
+                      <div className="w-[6px] h-[6px] bg-[#A3762E] rotate-45 shrink-0" />
+                      {i < qualifications.length - 1 && (
+                        <div
+                          className="w-px mt-2 flex-1"
+                          style={{ background: "rgba(163,118,46,0.18)", minHeight: "18px" }}
+                        />
+                      )}
+                    </div>
+                    <div className="pb-1">
+                      <p
+                        className="font-cormorant text-[#1A1208] font-semibold"
+                        style={{ fontSize: "clamp(1.05rem, 1.4vw, 1.2rem)", lineHeight: 1.4 }}
+                      >
+                        {degree}
+                      </p>
+                      {note && (
+                        <p
+                          className="font-lato text-[#8A7A62] mt-1"
+                          style={{ fontSize: "0.67rem", lineHeight: 1.75, letterSpacing: "0.02em" }}
+                        >
+                          {note}
+                        </p>
+                      )}
+                    </div>
+                  </div>
                 ))}
+              </section>
+
+              {/* Ornament */}
+              <div className="flex items-center gap-4 my-10">
+                <div className="h-px flex-1" style={{ background: "linear-gradient(to right,rgba(163,118,46,0.22),transparent)" }} />
+                <div className="flex gap-1.5 items-center">
+                  <div className="w-[4px] h-[4px] bg-[#A3762E] rotate-45 opacity-40" />
+                  <div className="w-[5px] h-[5px] bg-[#A3762E] rotate-45" />
+                  <div className="w-[4px] h-[4px] bg-[#A3762E] rotate-45 opacity-40" />
+                </div>
+                <div className="h-px flex-1" style={{ background: "linear-gradient(to left,rgba(163,118,46,0.22),transparent)" }} />
               </div>
 
-              {/* ── Academic Qualifications ── */}
-              <section>
-                <SectionHeading icon={<GradIcon />} title="Academic Qualifications" />
-                <div className="flex flex-col gap-3">
-                  {qualifications.map(({ degree, note }) => (
-                    <div key={degree} className="qual-card flex gap-4 items-start px-5 py-4">
-                      <div className="w-[7px] h-[7px] bg-[#A3762E] rotate-45 shrink-0 mt-[8px]" />
-                      <div>
-                        <p
-                          className="font-cormorant text-[#1A1208]"
-                          style={{ fontSize: "1.1rem", fontWeight: 600 }}
-                        >
-                          {degree}
-                        </p>
-                        {note && (
-                          <p
-                            className="font-lato text-[#7A6A52] mt-1"
-                            style={{ fontSize: "0.7rem", letterSpacing: "0.02em", lineHeight: 1.6 }}
-                          >
-                            {note}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              <Ornament />
-
-              {/* ── Ministry Leadership ── */}
-              <section>
-                <SectionHeading icon={<MinIcon />} title="Ministry Leadership Roles" />
-                <div className="flex flex-col gap-3">
-                  {ministryRoles.map(({ role, church, location }) => (
-                    <div key={church + location} className="ministry-card grid" style={{ gridTemplateColumns: "4px 1fr" }}>
-                      <div style={{ background: "linear-gradient(180deg,#A3762E 0%,#7A5C2E 100%)" }} />
-                      <div className="px-5 py-4">
-                        <p
-                          className="font-cinzel text-[#A3762E] uppercase mb-1 tracking-[0.18em]"
-                          style={{ fontSize: "0.52rem" }}
-                        >
-                          {role}
-                        </p>
-                        <p
-                          className="font-cormorant text-[#1A1208]"
-                          style={{ fontSize: "1.1rem", fontWeight: 600 }}
-                        >
-                          {church}{" "}
-                          <span
-                            className="font-cormorant"
-                            style={{ color: "#A3762E", fontWeight: 400 }}
-                          >
-                            — {location}
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              <Ornament />
-
-              {/* ── Family ── */}
-              <section>
-                <SectionHeading icon={<FamIcon />} title="Family &amp; Personal Life" />
-                <div className="relative overflow-hidden p-8 bg-[#1A1208]">
-                  {/* Watermark */}
+              {/* ─── Ministry Leadership ─── */}
+              <section className="mb-12">
+                <div className="sec-label">
                   <span
-                    className="absolute right-4 top-2 font-cinzel leading-none pointer-events-none select-none"
-                    style={{
-                      fontSize: "5rem",
-                      color: "transparent",
-                      WebkitTextStroke: "1px rgba(163,118,46,0.07)",
-                    }}
+                    className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em]"
+                    style={{ fontSize: "0.54rem", fontWeight: 600, whiteSpace: "nowrap" }}
                   >
-                    ✦
+                    Ministry Leadership
                   </span>
+                </div>
+
+                {ministryRoles.map(({ role, church, location }, i) => (
+                  <div key={i} className="data-row">
+                    <div className="shrink-0 flex flex-col items-center" style={{ paddingTop: "6px" }}>
+                      <div className="w-[6px] h-[6px] bg-[#A3762E] rotate-45 shrink-0" />
+                      {i < ministryRoles.length - 1 && (
+                        <div
+                          className="w-px mt-2"
+                          style={{ background: "rgba(163,118,46,0.18)", minHeight: "28px" }}
+                        />
+                      )}
+                    </div>
+                    <div>
+                      <p
+                        className="font-lato text-[#A3762E] uppercase tracking-[0.16em] mb-[3px]"
+                        style={{ fontSize: "0.58rem" }}
+                      >
+                        {role}
+                      </p>
+                      <p
+                        className="font-cormorant text-[#1A1208] font-semibold"
+                        style={{ fontSize: "clamp(1.05rem, 1.4vw, 1.2rem)", lineHeight: 1.3 }}
+                      >
+                        {church}
+                      </p>
+                      <p
+                        className="font-lato text-[#8A7A62] mt-[2px]"
+                        style={{ fontSize: "0.65rem", letterSpacing: "0.05em" }}
+                      >
+                        {location}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </section>
+
+              {/* Ornament */}
+              <div className="flex items-center gap-4 my-10">
+                <div className="h-px flex-1" style={{ background: "linear-gradient(to right,rgba(163,118,46,0.22),transparent)" }} />
+                <div className="flex gap-1.5 items-center">
+                  <div className="w-[4px] h-[4px] bg-[#A3762E] rotate-45 opacity-40" />
+                  <div className="w-[5px] h-[5px] bg-[#A3762E] rotate-45" />
+                  <div className="w-[4px] h-[4px] bg-[#A3762E] rotate-45 opacity-40" />
+                </div>
+                <div className="h-px flex-1" style={{ background: "linear-gradient(to left,rgba(163,118,46,0.22),transparent)" }} />
+              </div>
+
+              {/* ─── Family ─── */}
+              <section>
+                <div className="sec-label">
+                  <span
+                    className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em]"
+                    style={{ fontSize: "0.54rem", fontWeight: 600, whiteSpace: "nowrap" }}
+                  >
+                    Family &amp; Personal Life
+                  </span>
+                </div>
+
+                <div className="family-block px-6 sm:px-10 py-8 sm:py-10">
+                  {/* Decorative cross */}
+                  <div className="deco-cross">
+                    <div className="relative w-16 h-16">
+                      <div className="absolute left-1/2 top-0 bottom-0 w-[1.5px] -translate-x-1/2 bg-[#E8C97A]" />
+                      <div className="absolute top-1/2 left-0 right-0 h-[1.5px] -translate-y-1/2 bg-[#E8C97A]" />
+                    </div>
+                  </div>
+
+                  {/* Opening quote */}
+                  <div
+                    className="font-cormorant text-[#A3762E] leading-none mb-1 select-none"
+                    style={{ fontSize: "3.5rem", lineHeight: 0.75, opacity: 0.35 }}
+                  >
+                    "
+                  </div>
 
                   <p
-                    className="font-cormorant relative z-10"
-                    style={{ fontSize: "1.2rem", lineHeight: 1.9, color: "rgba(249,245,238,0.83)" }}
+                    className="font-cormorant italic"
+                    style={{
+                      fontSize: "clamp(1.15rem, 1.8vw, 1.4rem)",
+                      lineHeight: 1.95,
+                      color: "rgba(249,245,238,0.86)",
+                      marginBottom: "1.75rem",
+                    }}
                   >
-                    She is happily married to{" "}
-                    <strong style={{ color: "#E8C97A", fontWeight: 600 }}>Ishaku Adamu</strong>,
-                    and together they are blessed with a wonderful, growing family that
-                    is the joy of her heart.
+                    Behind every great work of faith is a home that holds it together. She is
+                    happily married to{" "}
+                    <strong
+                      style={{ color: "#E8C97A", fontWeight: 600, fontStyle: "normal" }}
+                    >
+                      Ishaku Adamu
+                    </strong>
+                    , and together they have built a home filled with love, laughter, and the
+                    unwavering presence of God.
                   </p>
 
+                  {/* Stats — inline, no boxes */}
                   <div
-                    className="flex gap-10 mt-6 pt-6 relative z-10"
-                    style={{ borderTop: "1px solid rgba(163,118,46,0.2)" }}
+                    className="flex flex-wrap gap-6 sm:gap-10 pt-6"
+                    style={{ borderTop: "1px solid rgba(163,118,46,0.18)" }}
                   >
                     {familyStats.map(({ num, label }) => (
-                      <div key={label} className="text-center">
+                      <div key={label} className="flex items-baseline gap-2">
                         <span
-                          className="font-cormorant block font-bold text-[#A3762E] leading-none"
-                          style={{ fontSize: "2.2rem" }}
+                          className="font-cormorant font-bold text-[#A3762E]"
+                          style={{ fontSize: "2.1rem", lineHeight: 1 }}
                         >
                           {num}
                         </span>
                         <span
-                          className="font-lato block mt-1 uppercase tracking-widest"
-                          style={{ fontSize: "0.58rem", color: "rgba(249,245,238,0.38)" }}
+                          className="font-lato uppercase tracking-widest"
+                          style={{ fontSize: "0.57rem", color: "rgba(249,245,238,0.38)" }}
                         >
                           {label}
                         </span>
@@ -477,11 +530,11 @@ export default function AboutSection() {
                 </div>
               </section>
 
-            </div>
+            </div>{/* end right col */}
           </div>
         </div>
 
-        {/* Bottom gold shimmer rule */}
+        {/* Bottom shimmer rule */}
         <div className="w-full h-[2px] gold-rule" style={fadeIn("1.5s")} />
       </section>
     </>
