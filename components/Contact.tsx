@@ -373,7 +373,7 @@ export default function ContactSection() {
 
               {/* Response note */}
               <div className="px-6 py-5 border border-[rgba(163,118,46,0.15)] bg-[#FEFCF8]">
-                <p className="font-cormorant text-[#6B5C47] italic leading-[1.8]" style={{ fontSize: "1.05rem" }}>
+                <p className="font-cormorant text-[#6B5C47] italic leading-[1.8]" style={{ fontSize: "1.2rem" }}>
                   "Every message is received with prayer and attended to with care. We aim to respond within 3–5 business days."
                 </p>
                 <p className="font-cinzel text-[#A3762E] uppercase tracking-[0.2em] mt-3" style={{ fontSize: "0.5rem", fontWeight: 700 }}>
