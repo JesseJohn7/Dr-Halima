@@ -318,7 +318,7 @@ export default function ContactSection() {
             {/* ═══ RIGHT: Info card ═══ */}
             <aside style={fadeUp("0.35s")}>
               <div className="info-card px-7 py-8 mb-6">
-                <p className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em] mb-7" style={{ fontSize: "0.54rem", fontWeight: 700 }}>
+                <p className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em] mb-7" style={{ fontSize: "0.94rem", fontWeight: 900 }}>
                   Enquiry Areas
                 </p>
 
