@@ -160,7 +160,7 @@ export default function AboutSection() {
               <div className="w-8 h-[2px] bg-[#A3762E] shrink-0" />
               <span
                 className="font-cinzel text-[#A3762E] uppercase tracking-[0.34em]"
-                style={{ fontSize: "0.54rem" }}
+                style={{ fontSize: "0.74rem" }}
               >
                 Her Story
               </span>
