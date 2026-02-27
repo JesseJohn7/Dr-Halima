@@ -224,7 +224,7 @@ export default function HeroSection() {
 
               {/* Gold triple-diamond divider */}
               <div className="flex items-center gap-3 my-7" style={fadeIn("0.4s")}>
-                <div className="h-px w-24 shrink-0" style={{ background: "linear-gradient(to right,#A3762E,transparent)" }} />
+                {/* <div className="h-px w-24 shrink-0" style={{ background: "linear-gradient(to right,#A3762E,transparent)" }} /> */}
                 <div className="w-[5px] h-[5px] bg-[#A3762E] rotate-45 shrink-0" />
                 <div className="w-[5px] h-[5px] bg-[#A3762E] rotate-45 shrink-0 opacity-40" />
                 <div className="w-[5px] h-[5px] bg-[#A3762E] rotate-45 shrink-0" />
