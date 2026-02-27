@@ -240,7 +240,7 @@ export default function Footer() {
 
               <p className="footer-tagline mb-8">
                 Scholar. Teacher. Broadcaster. A voice carrying the living Word to
-                hearts in every language — especially in Jukun.
+                hearts in every language especially in Jukun.
               </p>
 
               {/* Social icons */}
