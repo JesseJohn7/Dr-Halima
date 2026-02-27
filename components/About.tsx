@@ -157,7 +157,7 @@ export default function AboutSection() {
           {/* ── Page Header ── */}
           <header className="mb-14 lg:mb-20" style={fadeUp("0.05s")}>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-[2px] bg-[#A3762E] shrink-0" />
+              {/* <div className="w-8 h-[2px] bg-[#A3762E] shrink-0" /> */}
               <span
                 className="font-cinzel text-[#A3762E] uppercase tracking-[0.34em]"
                 style={{ fontSize: "0.74rem" }}
