@@ -183,7 +183,7 @@ export default function Footer() {
                 style={{ fontSize: "1rem" }}
               >
                 Scholar. Teacher. Broadcaster. A voice carrying the living Word to
-                hearts in every language — especially in Jukun.
+                hearts in every language especially in Jukun.
               </p>
 
               {/* Social icons */}
