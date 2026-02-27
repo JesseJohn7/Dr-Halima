@@ -224,7 +224,7 @@ export default function MinistrySection() {
       <section
         className="relative bg-white overflow-hidden"
         style={{ fontFamily: "'Cormorant Garamond', serif" }}
-      >
+        id="ministry" >
         <div className="w-full h-[3px] gold-rule" />
         <div className="absolute left-0 top-0 bottom-0 w-[5px] bg-[#A3762E] hidden lg:block" style={fadeIn("0.1s")} />
         <div className="absolute inset-0 pointer-events-none dot-grid" />
