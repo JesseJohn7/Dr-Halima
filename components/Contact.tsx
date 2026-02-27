@@ -189,14 +189,14 @@ export default function ContactSection() {
             {/* ── LEFT: Form ── */}
             <div style={fadeUp("0.2s")}>
               {submitted ? (
-                <div className="success-panel border border-[rgba(163,118,46,0.2)] bg-[#FEFCF8] px-8 py-12 text-center">
+                <div className="success-panel border border-[rgba(63, 52, 34, 0.2)] bg-[#FEFCF8] px-8 py-12 text-center">
                   <div className="w-12 h-12 rounded-full bg-[rgba(163,118,46,0.1)] flex items-center justify-center mx-auto mb-5">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#A3762E" strokeWidth="1.8" className="w-6 h-6">
                       <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                   <p className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em] mb-3" style={{ fontSize: "0.52rem" }}>
-                    Message Received
+                    Message Received 
                   </p>
                   <p className="font-cormorant text-[#2C1E08] leading-[1.85]" style={{ fontSize: "clamp(1.1rem,1.5vw,1.25rem)" }}>
                     Thank you for reaching out. Rev. Dr. Halima or a member of her team
