@@ -377,7 +377,7 @@ export default function ContactSection() {
                   "Every message is received with prayer and attended to with care. We aim to respond within 3–5 business days."
                 </p>
                 <p className="font-cinzel text-[#A3762E] uppercase tracking-[0.2em] mt-3" style={{ fontSize: "0.5rem", fontWeight: 700 }}>
-                  — Rev. Dr. Halima's Office
+                  Rev. Dr. Halima's Office
                 </p>
               </div>
             </aside>
