@@ -15,7 +15,7 @@ const socialLinks = [
     name: "Facebook",
     href: "#",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
       </svg>
     ),
@@ -24,7 +24,7 @@ const socialLinks = [
     name: "Instagram",
     href: "#",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
       </svg>
     ),
@@ -33,7 +33,7 @@ const socialLinks = [
     name: "YouTube",
     href: "#",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
         <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
       </svg>
     ),
@@ -42,7 +42,7 @@ const socialLinks = [
     name: "Spotify",
     href: "#",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
         <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
       </svg>
     ),
@@ -75,54 +75,114 @@ export default function Footer() {
           animation: shimmer 3s linear infinite;
         }
 
-        /* Quick link */
+        /* ── Column headings — bigger & heavier ── */
+        .footer-heading {
+          font-family: 'Cinzel', serif;
+          font-size: 0.68rem;         /* was 0.48rem */
+          font-weight: 700;           /* was 600 */
+          letter-spacing: 0.28em;
+          text-transform: uppercase;
+          color: #A3762E;
+          margin-bottom: 1.5rem;      /* was 1.2rem */
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+        }
+        .footer-heading::after {
+          content: '';
+          flex: 1;
+          height: 1px;
+          background: linear-gradient(to right, rgba(163,118,46,0.25), transparent);
+        }
+
+        /* ── Quick links — bigger ── */
         .footer-link {
           font-family: 'Lato', sans-serif;
-          font-size: 0.7rem;
-          letter-spacing: 0.06em;
-          color: rgba(249,245,238,0.5);
+          font-size: 0.82rem;         /* was 0.7rem */
+          font-weight: 400;
+          letter-spacing: 0.07em;
+          color: rgba(249,245,238,0.55);
           text-decoration: none;
           transition: color 0.2s ease, padding-left 0.2s ease;
-          display: flex; align-items: center; gap: 0.5rem;
+          display: flex;
+          align-items: center;
+          gap: 0.55rem;
+          padding: 0.15rem 0;
         }
         .footer-link::before {
           content: '';
           width: 4px; height: 4px;
           background: #A3762E;
           transform: rotate(45deg);
-          opacity: 0;
-          flex-shrink: 0;
+          opacity: 0; flex-shrink: 0;
           transition: opacity 0.2s ease;
         }
-        .footer-link:hover { color: #E8C97A; padding-left: 4px; }
+        .footer-link:hover { color: #E8C97A; padding-left: 5px; }
         .footer-link:hover::before { opacity: 1; }
 
-        /* Social icon */
+        /* ── Social icons — bigger ── */
         .social-icon {
-          width: 38px; height: 38px;
-          border: 1px solid rgba(163,118,46,0.25);
+          width: 46px; height: 46px;  /* was 38px */
+          border: 1px solid rgba(163,118,46,0.28);
           display: flex; align-items: center; justify-content: center;
-          color: rgba(249,245,238,0.45);
+          color: rgba(249,245,238,0.5);
           transition: all 0.22s ease;
           text-decoration: none;
         }
         .social-icon:hover {
           border-color: #A3762E;
           color: #E8C97A;
-          background: rgba(163,118,46,0.08);
-          transform: translateY(-2px);
+          background: rgba(163,118,46,0.1);
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(163,118,46,0.15);
         }
 
-        /* Legal link */
+        /* ── Reach-out items ── */
+        .reach-item-label {
+          font-family: 'Lato', sans-serif;
+          font-size: 0.78rem;         /* was 0.68rem */
+          color: rgba(249,245,238,0.5);
+          letter-spacing: 0.04em;
+        }
+
+        /* ── Legal links ── */
         .legal-link {
           font-family: 'Lato', sans-serif;
-          font-size: 0.58rem;
+          font-size: 0.66rem;         /* was 0.58rem */
           letter-spacing: 0.06em;
-          color: rgba(249,245,238,0.3);
+          color: rgba(249,245,238,0.35);
           text-decoration: none;
           transition: color 0.2s ease;
         }
         .legal-link:hover { color: #A3762E; }
+
+        /* ── Copyright ── */
+        .footer-copy {
+          font-family: 'Lato', sans-serif;
+          font-size: 0.68rem;         /* was 0.6rem */
+          color: rgba(249,245,238,0.3);
+          letter-spacing: 0.05em;
+        }
+
+        /* ── Brand tagline ── */
+        .footer-tagline {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 1.1rem;          /* was 1rem */
+          font-style: italic;
+          color: rgba(249,245,238,0.52);
+          line-height: 1.85;
+        }
+
+        /* ── "Follow the Ministry" label ── */
+        .social-label {
+          font-family: 'Cinzel', serif;
+          font-size: 0.54rem;         /* was 0.44rem */
+          font-weight: 700;
+          letter-spacing: 0.28em;
+          text-transform: uppercase;
+          color: #A3762E;
+          margin-bottom: 1rem;
+        }
 
         /* Watermark */
         .footer-wm {
@@ -158,7 +218,7 @@ export default function Footer() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-10 lg:px-16 xl:px-24">
 
-          {/* ── Main footer content ── */}
+          {/* ── Main columns ── */}
           <div className="pt-16 pb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr] gap-12 lg:gap-16">
 
             {/* Brand column */}
@@ -166,47 +226,38 @@ export default function Footer() {
               <a href="#home" className="inline-block mb-6 no-underline">
                 <p
                   className="font-cormorant text-[#F9F5EE]"
-                  style={{ fontSize: "1.5rem", fontWeight: 600, letterSpacing: "0.03em", lineHeight: 1.1 }}
+                  style={{ fontSize: "1.7rem", fontWeight: 700, letterSpacing: "0.03em", lineHeight: 1.1 }}
                 >
                   Rev. Dr. <em className="italic text-[#A3762E]">Halima</em>
                 </p>
                 <p
                   className="font-cinzel text-[#A3762E] uppercase mt-1"
-                  style={{ fontSize: "0.44rem", letterSpacing: "0.35em" }}
+                  style={{ fontSize: "0.5rem", fontWeight: 700, letterSpacing: "0.35em" }}
                 >
                   Ishaku Adamu · Ministry
                 </p>
               </a>
 
-              <p
-                className="font-cormorant text-[rgba(249,245,238,0.5)] italic leading-[1.85] mb-7"
-                style={{ fontSize: "1rem" }}
-              >
+              <p className="footer-tagline mb-8">
                 Scholar. Teacher. Broadcaster. A voice carrying the living Word to
-                hearts in every language especially in Jukun.
+                hearts in every language — especially in Jukun.
               </p>
 
               {/* Social icons */}
-              <div>
-                <p className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em] mb-4" style={{ fontSize: "0.44rem" }}>
-                  Follow the Ministry
-                </p>
-                <div className="flex gap-2 flex-wrap">
-                  {socialLinks.map((s) => (
-                    <a key={s.name} href={s.href} className="social-icon" title={s.name} target="_blank" rel="noopener noreferrer">
-                      {s.icon}
-                    </a>
-                  ))}
-                </div>
+              <p className="social-label">Follow the Ministry</p>
+              <div className="flex gap-3 flex-wrap">
+                {socialLinks.map((s) => (
+                  <a key={s.name} href={s.href} className="social-icon" title={s.name} target="_blank" rel="noopener noreferrer">
+                    {s.icon}
+                  </a>
+                ))}
               </div>
             </div>
 
             {/* Quick Links */}
             <div>
-              <p className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em] mb-6" style={{ fontSize: "0.48rem", fontWeight: 600 }}>
-                Quick Links
-              </p>
-              <nav className="flex flex-col gap-3">
+              <p className="footer-heading">Quick Links</p>
+              <nav className="flex flex-col gap-[0.6rem]">
                 {quickLinks.map((l) => (
                   <a key={l.label} href={l.href} className="footer-link">
                     {l.label}
@@ -215,31 +266,26 @@ export default function Footer() {
               </nav>
             </div>
 
-            {/* Contact snippet */}
+            {/* Reach Out */}
             <div>
-              <p className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em] mb-6" style={{ fontSize: "0.48rem", fontWeight: 600 }}>
-                Reach Out
-              </p>
-
+              <p className="footer-heading">Reach Out</p>
               <div className="space-y-5">
                 {[
-                  { label: "Speaking Invitations", icon: "🎤" },
-                  { label: "Media Requests",        icon: "📡" },
-                  { label: "Ministry Collaboration", icon: "🤝" },
-                  { label: "Book Enquiries",         icon: "📖" },
+                  { label: "Speaking Invitations",   icon: "🎤" },
+                  { label: "Media Requests",          icon: "📡" },
+                  { label: "Ministry Collaboration",  icon: "🤝" },
+                  { label: "Book Enquiries",          icon: "📖" },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-3">
-                    <span style={{ fontSize: "0.85rem" }}>{item.icon}</span>
-                    <span className="font-lato" style={{ fontSize: "0.68rem", color: "rgba(249,245,238,0.45)", letterSpacing: "0.04em" }}>
-                      {item.label}
-                    </span>
+                    <span style={{ fontSize: "1rem" }}>{item.icon}</span>
+                    <span className="reach-item-label">{item.label}</span>
                   </div>
                 ))}
 
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 mt-2 no-underline font-cinzel text-[#A3762E] uppercase tracking-[0.2em] hover:text-[#E8C97A] transition-colors"
-                  style={{ fontSize: "0.46rem" }}
+                  className="inline-flex items-center gap-2 mt-1 no-underline font-cinzel text-[#A3762E] uppercase tracking-[0.2em] hover:text-[#E8C97A] transition-colors"
+                  style={{ fontSize: "0.54rem", fontWeight: 700 }}
                 >
                   Use the Contact Form
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-3 h-3">
@@ -263,24 +309,22 @@ export default function Footer() {
 
           {/* ── Bottom bar ── */}
           <div className="pb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-
-            {/* Copyright */}
-            <p className="font-lato text-center sm:text-left order-2 sm:order-1" style={{ fontSize: "0.6rem", color: "rgba(249,245,238,0.28)", letterSpacing: "0.05em" }}>
+            <p className="footer-copy text-center sm:text-left order-2 sm:order-1">
               © {year} Rev. Dr. Halima Ishaku Adamu. All rights reserved.
             </p>
 
-            {/* Legal links */}
-            <div className="flex items-center gap-4 order-1 sm:order-2 flex-wrap justify-center">
+            <div className="flex items-center gap-5 order-1 sm:order-2 flex-wrap justify-center">
               {legalLinks.map((l, i) => (
-                <span key={l.label} className="flex items-center gap-4">
+                <span key={l.label} className="flex items-center gap-5">
                   <a href={l.href} className="legal-link">{l.label}</a>
                   {i < legalLinks.length - 1 && (
-                    <span style={{ color: "rgba(163,118,46,0.25)", fontSize: "0.5rem" }}>✦</span>
+                    <span style={{ color: "rgba(163,118,46,0.3)", fontSize: "0.55rem" }}>✦</span>
                   )}
                 </span>
               ))}
             </div>
           </div>
+
         </div>
 
         {/* Bottom gold rule */}
