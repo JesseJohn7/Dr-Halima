@@ -285,7 +285,7 @@ export default function BookPage() {
               <div className="flex items-center gap-3 mb-7" style={fadeUp("0.1s")}>
                 <div className="w-8 h-[2px] bg-[#A3762E] shrink-0" />
                 <span className="font-cinzel text-[#A3762E] uppercase tracking-[0.32em]" style={{ fontSize: "0.56rem" }}>
-                  New Release · 2024
+                  New Release · 2026
                 </span>
               </div>
 

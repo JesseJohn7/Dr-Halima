@@ -4,6 +4,7 @@ import About from "@/components/About";
 import Book from "@/components/Book"
 import Sermon from "@/components/sermon"
 import Ministry from "@/components/Ministry"
+import Contact from "@/components/Contact";
 export default function Home() {
   return (
    <>
@@ -13,6 +14,7 @@ export default function Home() {
       <Sermon/>
       <Book/>
       <Ministry/>
+      <Contact/>
    </>
   );
 }
