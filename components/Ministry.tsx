@@ -56,7 +56,7 @@ const ministryAreas = [
 /* ─── Gallery placeholder tiles ────────────────────────────── */
 const galleryItems = [
   { label: "Teaching at CRCN",        aspect: "aspect-[4/3]",  bg: "from-[#2C1E08] to-[#4A3520]", src: "/imga.png" },
-  { label: "Women's Prayer Gathering", aspect: "aspect-square", bg: "from-[#1A1208] to-[#3A2810]", src: "/img2.png" },
+  { label: "Women's Prayer Gathering", aspect: "aspect-square", bg: "from-[#1A1208] to-[#3A2810]", src: "/imgb.png" },
   { label: "Kaduna Conference",        aspect: "aspect-[4/3]",  bg: "from-[#3A2810] to-[#2C1E08]", src: null },
   { label: "Pastoral Leadership",      aspect: "aspect-square", bg: "from-[#241908] to-[#1A1208]", src: null },
   { label: "Radio Ministry FRCN",      aspect: "aspect-[4/3]",  bg: "from-[#1A1208] to-[#2C1E08]", src: null },

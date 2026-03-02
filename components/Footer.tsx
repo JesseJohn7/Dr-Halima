@@ -283,7 +283,8 @@ export default function Footer() {
                 ))}
 
                 <a
-                  href="#contact"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSeuDNJcMNO916neG9ELkAEWc9aLbjyFxYhS2oOLrQ37LsgMvw/viewform"
+                  target="_blank"
                   className="inline-flex items-center gap-2 mt-1 no-underline font-cinzel text-[#A3762E] uppercase tracking-[0.2em] hover:text-[#E8C97A] transition-colors"
                   style={{ fontSize: "0.54rem", fontWeight: 700 }}
                 >
