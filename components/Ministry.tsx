@@ -53,19 +53,19 @@ const ministryAreas = [
   },
 ];
 
-/* ─── Gallery placeholder tiles ────────────────────────────── */
+/* ─── Gallery items ─────────────────────────────────────────── */
 const galleryItems = [
-  { label: "Teaching at CRCN",        aspect: "aspect-[4/3]",  bg: "from-[#2C1E08] to-[#4A3520]", src: "/imga.png" },
-  { label: "Women's Prayer Gathering", aspect: "aspect-square", bg: "from-[#1A1208] to-[#3A2810]", src: "/imgb.png" },
-  { label: "Kaduna Conference",        aspect: "aspect-[4/3]",  bg: "from-[#3A2810] to-[#2C1E08]", src: null },
-  { label: "Pastoral Leadership",      aspect: "aspect-square", bg: "from-[#241908] to-[#1A1208]", src: null },
-  { label: "Radio Ministry FRCN",      aspect: "aspect-[4/3]",  bg: "from-[#1A1208] to-[#2C1E08]", src: null },
-  { label: "Ordination Ceremony",      aspect: "aspect-square", bg: "from-[#4A3520] to-[#1A1208]", src: null },
+  { label: "Teaching at CRCN",         aspect: "aspect-[4/3]",  bg: "from-[#2C1E08] to-[#4A3520]", src: "/imga.png" },
+  { label: "Women's Prayer Gathering",  aspect: "aspect-square", bg: "from-[#1A1208] to-[#3A2810]", src: "/imgb.png" },
+  { label: "Kaduna Conference",         aspect: "aspect-[4/3]",  bg: "from-[#3A2810] to-[#2C1E08]", src: null },
+  { label: "Pastoral Leadership",       aspect: "aspect-square", bg: "from-[#241908] to-[#1A1208]", src: null },
+  { label: "Radio Ministry FRCN",       aspect: "aspect-[4/3]",  bg: "from-[#1A1208] to-[#2C1E08]", src: null },
+  { label: "Ordination Ceremony",       aspect: "aspect-square", bg: "from-[#4A3520] to-[#1A1208]", src: null },
 ];
 
 export default function MinistrySection() {
-  const [loaded,  setLoaded]  = useState(false);
-  const [active,  setActive]  = useState("teaching");
+  const [loaded, setLoaded] = useState(false);
+  const [active, setActive] = useState("teaching");
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 100);
@@ -115,7 +115,6 @@ export default function MinistrySection() {
           background: linear-gradient(to right, rgba(163,118,46,0.28), transparent);
         }
 
-        /* Ministry tab pills */
         .m-tab {
           display: flex; align-items: center; gap: 0.75rem;
           padding: 0.9rem 1.1rem;
@@ -140,10 +139,8 @@ export default function MinistrySection() {
           color: #6B5C47; transition: color 0.22s ease;
         }
 
-        /* Content panel */
         .m-panel { animation: fadeSlide 0.35s ease both; }
 
-        /* Highlight pill */
         .hi-pill {
           display: inline-flex; align-items: center; gap: 0.5rem;
           padding: 0.35rem 0.85rem;
@@ -169,16 +166,19 @@ export default function MinistrySection() {
         }
         .gallery-tile:hover::after { opacity: 1; }
         .gallery-tile:hover .gallery-img { transform: scale(1.04); }
-        .gallery-img { transition: transform 0.5s ease; width: 100%; height: 100%; object-fit: cover; }
+        .gallery-img {
+          transition: transform 0.5s ease;
+          width: 100%; height: 100%;
+          object-fit: cover;
+          display: block;
+        }
 
-        /* Placeholder gallery inner */
         .gallery-placeholder {
           width: 100%; height: 100%;
           display: flex; align-items: center; justify-content: center;
           position: relative; overflow: hidden;
         }
 
-        /* Speaking CTA card */
         .cta-card {
           background: linear-gradient(135deg, #1A1208 0%, #2C1E08 100%);
           border: 1px solid rgba(163,118,46,0.22);
@@ -224,7 +224,8 @@ export default function MinistrySection() {
       <section
         className="relative bg-white overflow-hidden"
         style={{ fontFamily: "'Cormorant Garamond', serif" }}
-        id="ministry" >
+        id="ministry"
+      >
         <div className="w-full h-[3px] gold-rule" />
         <div className="absolute left-0 top-0 bottom-0 w-[5px] bg-[#A3762E] hidden lg:block" style={fadeIn("0.1s")} />
         <div className="absolute inset-0 pointer-events-none dot-grid" />
@@ -269,7 +270,6 @@ export default function MinistrySection() {
 
             {/* Panel */}
             <div key={active} className="m-panel">
-              {/* Active indicator */}
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-[5px] h-[5px] bg-[#A3762E] rotate-45" />
                 <span className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em]" style={{ fontSize: "0.5rem" }}>
@@ -284,7 +284,6 @@ export default function MinistrySection() {
                 {activeArea.heading}
               </h3>
 
-              {/* Gold rule */}
               <div className="w-16 h-[2px] mb-6" style={{ background: "linear-gradient(to right,#A3762E,#E8C97A)" }} />
 
               <p
@@ -294,7 +293,6 @@ export default function MinistrySection() {
                 {activeArea.body}
               </p>
 
-              {/* Highlights */}
               <div className="flex flex-wrap gap-2">
                 {activeArea.highlights.map((h) => (
                   <span key={h} className="hi-pill">
@@ -332,27 +330,31 @@ export default function MinistrySection() {
                   data-label={item.label}
                   className={`gallery-tile ${item.aspect}`}
                 >
-                  {/* Placeholder — replace with <img src="..." /> */}
-                  <div className={`gallery-placeholder bg-gradient-to-br ${item.bg}`}>
-                    <svg viewBox="0 0 200 200" className="absolute inset-0 w-full h-full opacity-[0.07]" fill="#A3762E">
-                      <circle cx="100" cy="70" r="35"/>
-                      <path d="M30 200 Q30 130 100 115 Q170 130 170 200Z"/>
-                    </svg>
-                    <div className="relative z-10 text-center px-4">
-                      <p className="font-cinzel text-[#A3762E] opacity-40 uppercase tracking-[0.25em]" style={{ fontSize: "0.44rem" }}>
-                        {item.label}
-                      </p>
-                      <p className="font-lato text-[#A3762E] opacity-20 mt-1" style={{ fontSize: "0.5rem", letterSpacing: "0.1em" }}>
-                        Photo
-                      </p>
+                  {item.src ? (
+                    <img
+                      src={item.src}
+                      alt={item.label}
+                      className="gallery-img"
+                    />
+                  ) : (
+                    <div className={`gallery-placeholder bg-gradient-to-br ${item.bg}`}>
+                      <svg viewBox="0 0 200 200" className="absolute inset-0 w-full h-full opacity-[0.07]" fill="#A3762E">
+                        <circle cx="100" cy="70" r="35"/>
+                        <path d="M30 200 Q30 130 100 115 Q170 130 170 200Z"/>
+                      </svg>
+                      <div className="relative z-10 text-center px-4">
+                        <p className="font-cinzel text-[#A3762E] opacity-40 uppercase tracking-[0.25em]" style={{ fontSize: "0.44rem" }}>
+                          {item.label}
+                        </p>
+                        <p className="font-lato text-[#A3762E] opacity-20 mt-1" style={{ fontSize: "0.5rem", letterSpacing: "0.1em" }}>
+                          Photo
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               ))}
             </div>
-            <p className="font-lato text-[#A3914E] mt-3 text-right" style={{ fontSize: "0.58rem", letterSpacing: "0.05em" }}>
-              Replace placeholders with actual ministry photos
-            </p>
           </section>
 
           {/* ── Speaking CTA ── */}
