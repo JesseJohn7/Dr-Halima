@@ -292,7 +292,7 @@ export default function HeroSection() {
                 <div className="relative overflow-hidden bg-[#F5EFE0]" style={{ aspectRatio: "3/4" }}>
 
                   <Image
-                    src="/Drimg.png"
+                    src="/Dr.png"
                     alt="Rev. Dr. Halima Ishaku Adamu"
                     fill
                     className="object-cover object-top"
