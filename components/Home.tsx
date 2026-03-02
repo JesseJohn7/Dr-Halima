@@ -147,7 +147,7 @@ export default function HeroSection() {
         }
       `}</style>
 
-      <section className="relative min-h-screen bg-white overflow-hidden flex items-center pt-[72px]">
+      <section className="relative min-h-screen bg-white overflow-hidden flex items-center pt-[72px]" id="home">
 
         {/* Top gold bar */}
         <div className="absolute top-[72px] left-0 right-0 h-[3px] gold-rule z-10" />
