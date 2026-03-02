@@ -10,7 +10,7 @@ const sermons = [
     topic: "Faith",
     date: "2025-01-12",
     duration: "28:14",
-    audioSrc: "",
+    audioSrc: "/Podcast.mp4",
     description:
       "A meditation on the eternal nature of God's promises, drawn from the ancient wells of Jukun oral tradition and the living Word.",
   },
@@ -72,7 +72,6 @@ const sermons = [
 ];
 
 const topics = ["All", "Faith", "Discipleship", "Grace", "Prayer", "Holiness"];
-const filterOptions = ["All Sermons", "By Date", "By Topic", "By Scripture"];
 
 const platforms = [
   {
@@ -113,20 +112,32 @@ function AudioPlayer({ sermon }: { sermon: (typeof sermons)[0] }) {
   const [playing, setPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState("0:00");
+  const [duration, setDuration] = useState(sermon.duration);
   const audioRef = useRef<HTMLAudioElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
 
+  // Stop playback when sermon changes
+  useEffect(() => {
+    setPlaying(false);
+    setProgress(0);
+    setCurrentTime("0:00");
+    setDuration(sermon.duration);
+  }, [sermon]);
+
   const toggle = () => {
     if (!audioRef.current) return;
+    if (!sermon.audioSrc) return; // no audio file attached
     if (playing) {
       audioRef.current.pause();
+      setPlaying(false);
     } else {
       audioRef.current.play().catch(() => {});
+      setPlaying(true);
     }
-    setPlaying(!playing);
   };
 
   const formatTime = (s: number) => {
+    if (isNaN(s)) return "0:00";
     const m = Math.floor(s / 60);
     const sec = Math.floor(s % 60);
     return `${m}:${sec.toString().padStart(2, "0")}`;
@@ -139,6 +150,11 @@ function AudioPlayer({ sermon }: { sermon: (typeof sermons)[0] }) {
     setCurrentTime(formatTime(audioRef.current.currentTime));
   };
 
+  const handleLoadedMetadata = () => {
+    if (!audioRef.current) return;
+    setDuration(formatTime(audioRef.current.duration));
+  };
+
   const seek = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!audioRef.current || !barRef.current) return;
     const rect = barRef.current.getBoundingClientRect();
@@ -146,13 +162,17 @@ function AudioPlayer({ sermon }: { sermon: (typeof sermons)[0] }) {
     audioRef.current.currentTime = pct * (audioRef.current.duration || 0);
   };
 
+  const hasAudio = !!sermon.audioSrc;
+
   return (
     <div className="featured-player px-6 sm:px-8 py-7">
+      {/* Hidden audio element — plays audio track from mp4 */}
       <audio
         ref={audioRef}
-        src={sermon.audioSrc}
+        src={sermon.audioSrc || undefined}
         onTimeUpdate={handleTimeUpdate}
-        onEnded={() => setPlaying(false)}
+        onLoadedMetadata={handleLoadedMetadata}
+        onEnded={() => { setPlaying(false); setProgress(0); setCurrentTime("0:00"); }}
       />
 
       {/* Now playing label */}
@@ -164,14 +184,13 @@ function AudioPlayer({ sermon }: { sermon: (typeof sermons)[0] }) {
               className="w-[3px] bg-[#E8C97A] rounded-full"
               style={{
                 height: playing ? `${h * 100}%` : "30%",
-                transition: "height 0.3s ease",
-                animationDelay: `${i * 0.1}s`,
+                transition: `height 0.3s ease ${i * 0.07}s`,
               }}
             />
           ))}
         </div>
         <span className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em]" style={{ fontSize: "0.48rem" }}>
-          Now Playing
+          {playing ? "Now Playing" : "Ready to Play"}
         </span>
       </div>
 
@@ -188,8 +207,8 @@ function AudioPlayer({ sermon }: { sermon: (typeof sermons)[0] }) {
       {/* Progress bar */}
       <div
         ref={barRef}
-        onClick={seek}
-        className="relative h-[3px] bg-[rgba(163,118,46,0.2)] rounded-full mb-3 cursor-pointer group"
+        onClick={hasAudio ? seek : undefined}
+        className={`relative h-[3px] bg-[rgba(163,118,46,0.2)] rounded-full mb-3 ${hasAudio ? "cursor-pointer group" : "cursor-not-allowed opacity-50"}`}
       >
         <div
           className="absolute left-0 top-0 h-full rounded-full"
@@ -199,29 +218,37 @@ function AudioPlayer({ sermon }: { sermon: (typeof sermons)[0] }) {
             transition: "width 0.1s linear",
           }}
         />
-        <div
-          className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#E8C97A] shadow opacity-0 group-hover:opacity-100 transition-opacity"
-          style={{ left: `calc(${progress}% - 6px)` }}
-        />
+        {hasAudio && (
+          <div
+            className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#E8C97A] shadow opacity-0 group-hover:opacity-100 transition-opacity"
+            style={{ left: `calc(${progress}% - 6px)` }}
+          />
+        )}
       </div>
       <div className="flex justify-between font-lato text-[#8A7A62] mb-6" style={{ fontSize: "0.58rem" }}>
         <span>{currentTime}</span>
-        <span>{sermon.duration}</span>
+        <span>{duration}</span>
       </div>
 
       {/* Controls */}
       <div className="flex items-center justify-center gap-6">
-        <button className="text-[#8A7A62] hover:text-[#E8C97A] transition-colors" title="Rewind 15s"
-          onClick={() => { if (audioRef.current) audioRef.current.currentTime -= 15; }}>
+        {/* Rewind 15s */}
+        <button
+          className={`transition-colors ${hasAudio ? "text-[#8A7A62] hover:text-[#E8C97A]" : "text-[#4A3A2A] cursor-not-allowed"}`}
+          title="Rewind 15s"
+          onClick={() => { if (audioRef.current && hasAudio) audioRef.current.currentTime -= 15; }}
+        >
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-            <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
-            <text x="8.5" y="14.5" fontSize="5" fill="currentColor" fontFamily="sans-serif">15</text>
+            <path d="M11.99 5V1l-5 5 5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6h-2c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8.01-8z"/>
+            <text x="8" y="14.5" fontSize="5" fill="currentColor" fontFamily="sans-serif" fontWeight="bold">15</text>
           </svg>
         </button>
 
+        {/* Play / Pause */}
         <button
           onClick={toggle}
-          className="play-btn w-14 h-14 rounded-full flex items-center justify-center transition-transform hover:scale-105 active:scale-95"
+          className={`play-btn w-14 h-14 rounded-full flex items-center justify-center transition-transform ${hasAudio ? "hover:scale-105 active:scale-95" : "opacity-40 cursor-not-allowed"}`}
+          title={hasAudio ? (playing ? "Pause" : "Play") : "No audio available"}
         >
           {playing ? (
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-[#1A1208]">
@@ -234,14 +261,25 @@ function AudioPlayer({ sermon }: { sermon: (typeof sermons)[0] }) {
           )}
         </button>
 
-        <button className="text-[#8A7A62] hover:text-[#E8C97A] transition-colors" title="Forward 15s"
-          onClick={() => { if (audioRef.current) audioRef.current.currentTime += 15; }}>
+        {/* Forward 15s */}
+        <button
+          className={`transition-colors ${hasAudio ? "text-[#8A7A62] hover:text-[#E8C97A]" : "text-[#4A3A2A] cursor-not-allowed"}`}
+          title="Forward 15s"
+          onClick={() => { if (audioRef.current && hasAudio) audioRef.current.currentTime += 15; }}
+        >
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
             <path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/>
-            <text x="8.5" y="14.5" fontSize="5" fill="currentColor" fontFamily="sans-serif">15</text>
+            <text x="8" y="14.5" fontSize="5" fill="currentColor" fontFamily="sans-serif" fontWeight="bold">15</text>
           </svg>
         </button>
       </div>
+
+      {/* No audio notice */}
+      {!hasAudio && (
+        <p className="font-lato text-[#5A4A3A] text-center mt-5" style={{ fontSize: "0.6rem", letterSpacing: "0.08em" }}>
+          Audio coming soon for this episode
+        </p>
+      )}
     </div>
   );
 }
@@ -282,6 +320,9 @@ function SermonCard({
             <div className="min-w-0">
               <p className="font-lato text-[#A3762E] uppercase tracking-[0.15em] mb-1" style={{ fontSize: "0.52rem" }}>
                 {sermon.topic} · {sermon.scripture}
+                {!sermon.audioSrc && (
+                  <span className="ml-2 text-[#5A4A3A]">· Coming Soon</span>
+                )}
               </p>
               <h4
                 className="font-cormorant text-[#1A1208] font-semibold leading-snug"
@@ -311,7 +352,6 @@ export default function SermonsPage() {
   const [loaded, setLoaded] = useState(false);
   const [activeSermon, setActiveSermon] = useState(sermons[0]);
   const [filterTopic, setFilterTopic] = useState("All");
-  const [sortMode, setSortMode] = useState("All Sermons");
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 100);
@@ -345,10 +385,6 @@ export default function SermonsPage() {
         @keyframes shimmer {
           0%   { background-position: -200% center; }
           100% { background-position:  200% center; }
-        }
-        @keyframes pulse-ring {
-          0%   { transform: scale(1); opacity: 0.6; }
-          100% { transform: scale(1.6); opacity: 0; }
         }
         @keyframes wave {
           0%, 100% { transform: scaleY(0.4); }
@@ -520,7 +556,8 @@ export default function SermonsPage() {
       `}</style>
 
       <div
-         id="sermons" className="relative min-h-screen bg-white overflow-x-hidden"
+        id="sermons"
+        className="relative min-h-screen bg-white overflow-x-hidden"
         style={{ fontFamily: "'Cormorant Garamond', serif" }}
       >
         {/* Top gold rule */}
@@ -538,7 +575,7 @@ export default function SermonsPage() {
           style={fadeUp("0.05s")}
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-[2px] bg-[#A3762E] shrink-0" />
+            {/* <div className="w-8 h-[2px] bg-[#A3762E] shrink-0" /> */}
             <span
               className="font-cinzel text-[#A3762E] uppercase tracking-[0.34em]"
               style={{ fontSize: "0.54rem" }}
@@ -684,7 +721,7 @@ export default function SermonsPage() {
               </div>
             </section>
 
-            {/* ════ PLAYER (right / bottom on mobile → above archive on mobile) ════ */}
+            {/* ════ PLAYER (right / above archive on mobile) ════ */}
             <aside className="order-1 lg:order-2 lg:sticky lg:top-10">
               <div className="sec-label">
                 <span className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em]" style={{ fontSize: "0.52rem", fontWeight: 600, whiteSpace: "nowrap" }}>
@@ -717,7 +754,7 @@ export default function SermonsPage() {
 
               {/* Share / Download row */}
               <div className="mt-5 flex gap-3">
-                <button className="platform-pill flex-1 justify-center" style={{ fontSize: "0.6rem" }}>
+                <button className="platform-pill flex-1 justify-center">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4 text-[#A3762E]">
                     <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
