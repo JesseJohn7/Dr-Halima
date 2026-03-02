@@ -408,62 +408,16 @@ export default function BookPage() {
                   <div className="book-spine rounded-l-sm" />
 
                   {/* Book cover */}
-                  <div className="absolute inset-0 overflow-hidden rounded-sm bg-[#1A1208]">
-                    {/*
-                      ── Replace with your real book cover image: ──
-                      <Image
-                        src="/book-cover.png"
-                        alt="The Beauty of Perseverance Book Cover"
-                        fill
-                        className="object-cover"
-                        priority
-                      />
-                    */}
-
-                    {/* Placeholder cover design */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-between p-6"
-                      style={{ background: "linear-gradient(160deg,#1A1208 0%,#2D1F0E 50%,#0e1a14 100%)" }}
-                    >
-                      {/* Top ornament */}
-                      <div className="flex flex-col items-center gap-2 mt-2">
-                        <div className="w-[1px] h-8" style={{ background: "linear-gradient(to bottom,transparent,#A3762E)" }} />
-                        <div className="w-[5px] h-[5px] bg-[#A3762E] rotate-45" />
-                      </div>
-
-                      {/* Title area */}
-                      <div className="text-center px-2">
-                        <p className="font-cinzel text-[#A3762E] uppercase tracking-[0.3em] mb-4" style={{ fontSize: "0.42rem" }}>
-                          Rev. Dr. Halima Ishaku Adamu
-                        </p>
-                        <div
-                          className="h-[1.5px] w-12 mx-auto mb-4"
-                          style={{ background: "linear-gradient(to right,transparent,#E8C97A,transparent)" }}
-                        />
-                        <h3 className="font-cormorant text-[#FAF6EE] leading-[1.1] mb-1" style={{ fontSize: "clamp(1.1rem,3vw,1.6rem)", fontWeight: 600 }}>
-                          The Beauty of
-                        </h3>
-                        <h3 className="font-cormorant italic text-[#E8C97A] leading-[1.1]" style={{ fontSize: "clamp(1.1rem,3vw,1.6rem)", fontWeight: 700 }}>
-                          Perseverance
-                        </h3>
-                        <div
-                          className="h-[1px] w-16 mx-auto mt-4"
-                          style={{ background: "linear-gradient(to right,transparent,rgba(232,201,122,0.4),transparent)" }}
-                        />
-                        <p className="font-cormorant italic text-[#C9A84C] mt-3 opacity-80 leading-[1.5]" style={{ fontSize: "0.65rem" }}>
-                          Finding Strength, Purpose,<br />and Refinement Through Life's Trials
-                        </p>
-                      </div>
-
-                      {/* Bottom ornament */}
-                      <div className="flex flex-col items-center gap-2 mb-2">
-                        <div className="flex items-center gap-2">
-                          <div className="h-[1px] w-8" style={{ background: "linear-gradient(to right,transparent,#A3762E)" }} />
-                          <div className="w-[4px] h-[4px] bg-[#A3762E] rotate-45" />
-                          <div className="h-[1px] w-8" style={{ background: "linear-gradient(to left,transparent,#A3762E)" }} />
-                        </div>
-                        <div className="w-[1px] h-6" style={{ background: "linear-gradient(to top,transparent,#A3762E)" }} />
-                      </div>
-                    </div>
+                  <div className="absolute inset-0 overflow-hidden rounded-sm">
+                    <Image
+                      src="/BookCover.png"
+                      alt="The Beauty of Perseverance Book Cover"
+                      fill
+                      className="object-cover"
+                      priority
+                      sizes="(max-width: 768px) 100vw, 320px"
+                      quality={85}
+                    />
 
                     {/* Cover gloss sheen */}
                     <div className="book-cover-shadow" />
