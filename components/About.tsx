@@ -190,7 +190,7 @@ export default function AboutSection() {
 
                 <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
                   <img
-                    src="/DrSuit.png"
+                    src="/halima.png"
                     alt="Rev. Dr. Halima Ishaku Adamu"
                     className="absolute inset-0 w-full h-full object-cover object-top"
                   />
