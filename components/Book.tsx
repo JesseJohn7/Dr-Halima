@@ -364,7 +364,8 @@ export default function BookPage() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4" style={fadeUp("0.75s")}>
-                <a href="#order" className="btn-order">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeuDNJcMNO916neG9ELkAEWc9aLbjyFxYhS2oOLrQ37LsgMvw/viewform"
+                   target="_blank" className="btn-order">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M6 2h12a2 2 0 012 2v18l-8-3-8 3V4a2 2 0 012-2z"/>
                   </svg>
