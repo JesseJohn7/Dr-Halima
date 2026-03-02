@@ -249,7 +249,8 @@ export default function HeroSection() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4" style={fadeUp("0.72s")}>
                 <a
-                  href="#book"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSeuDNJcMNO916neG9ELkAEWc9aLbjyFxYhS2oOLrQ37LsgMvw/viewform"
+                  target="_blank"
                   className="btn-primary font-cinzel font-bold uppercase bg-[#A3762E] text-white inline-flex items-center justify-center gap-2 no-underline"
                   style={{ fontSize: "0.62rem", letterSpacing: "0.18em", padding: "1rem 1.8rem" }}
                 >
