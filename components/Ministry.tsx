@@ -316,7 +316,7 @@ export default function MinistrySection() {
           </div>
 
           {/* ── Photo Gallery ── */}
-          <section className="mb-20" style={fadeUp("0.45s")}>
+          {/* <section className="mb-20" style={fadeUp("0.45s")}>
             <div className="sec-label">
               <span className="font-cinzel text-[#A3762E] uppercase tracking-[0.28em]" style={{ fontSize: "0.52rem", fontWeight: 600, whiteSpace: "nowrap" }}>
                 Ministry Gallery
@@ -355,7 +355,7 @@ export default function MinistrySection() {
                 </div>
               ))}
             </div>
-          </section>
+          </section> */}
 
           {/* ── Speaking CTA ── */}
           <section className="cta-card px-7 sm:px-12 py-10 sm:py-14" style={fadeUp("0.55s")}>
